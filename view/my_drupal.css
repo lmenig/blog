@@ -1,0 +1,19 @@
+body {
+	background: black;
+	}
+header
+{
+	text-align:center;
+	color: white;
+}
+article {
+	color:white;
+	background: #454544;
+	padding: 1em 1em 1em 1em;
+	margin: 1em 1em 1em 1em;
+	border-radius: 10px;
+}
+form {
+	padding: 2em 2em 2em 2em;
+	margin: 2em 2em 2em 2em;
+	}

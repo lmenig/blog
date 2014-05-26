@@ -1,0 +1,229 @@
+ <!doctype html>
+<html lang="fr">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" type="text/css" href="style.css" media="screen" />
+    <link rel="stylesheet" href="formulaire.css" />
+    <link rel="stylesheet" href="test2.css" />
+    <title>formulaire</title>
+  <head />
+
+  <h<body>
+  <div id="main">
+    <header>
+    <div id="logo">
+        <div id="logo_text">
+          <h1><a href="index.html">ETNA<span class="logo_colour"> Blog  </span><img src="images/etna.png" width="30" height="30" /></a></h1>
+          <h2>by bheekh_m, meniga_l, fares_k, nguyen_b</h2>
+        </div>
+      </div>
+      <nav>
+        <div id="menu_container">
+          <ul class="sf-menu" id="nav">
+            <li><a href="index.html">Accueil</a></li>
+            <li><a href="article.html">Articles</a></li>
+            <li><a href="#">commentaire</a></li>
+            <li><a href="#">Livre d'or</a></li>
+            <li><a href="#">à propos</a></li>
+          </ul>
+        </div>
+      </nav>
+    </header><br />
+      <div id="comptee">
+    <div id="compte">
+      <center><b><font size="+1">J'ai déjà un compte</font></b></center>
+    </div>
+    <br /><br />
+      <center>identifiant : <input name="pseudo" type="text" required>
+	mot de passe : <INPUT TYPE="password" NAME="nom_du_champ" SIZE="taille" MAXLENGTH="taille_maximum"></center>
+      <br />
+      <center><input type="button" name="connexion" value="Je me connecte" onclick="self.location.href='test.html'" onclick></center>
+  </div>
+      <br /><br />
+      <div id="bow">
+  <font size="+5">FORMULAIRE :</font>
+  <center>
+    <form id="myForm">
+
+      <span class="form_col">Sexe :</span>
+      <label><input name="sex" type="radio" value="H" />Homme</label>
+      <label><input name="sex" type="radio" value="F" />Femme</label>
+      <span class="tooltip">Vous devez sélectionnez votre sexe</span>
+      <br /><br />
+
+      <label class="form_col" for="e-mail">Votre E-mail :</label> <FONT SIZE=3 FACE="arial"><B><INPUT TYPE="email" required NAME="nom" SIZE="20" MAXLENGTH="30" VALUE="Exemple@exemple.com" ></B></FONT>
+      <span class="tooltip">RETRY</span>
+      <P>
+      <label class="form_col" for="login">Pseudo :</label>
+      <input name="login" id="login" type="text" required/>
+      <span class="tooltip">Le pseudo ne peut pas faire moins de 4 caractères</span>
+      <br /><br />
+
+      <label class="form_col" for="pwd1">Mot de passe :</label>
+      <input name="pwd1" id="pwd1" type="password" />
+      <span class="tooltip">Le mot de passe ne doit pas faire moins de 6 caractères</span>
+
+      <br /><br />
+
+      <label class="form_col" for="pwd2">Mot de passe (confirmation) :</label>
+      <input name="pwd2" id="pwd2" type="password" />
+      <span class="tooltip">Le mot de passe de confirmation doit être identique à celui d'origine</span>
+      <br /><br />
+
+      <span class="form_col"></span>
+      <input type="submit" value="M'inscrire" /> <input type="reset" value="Réinitialiser le formulaire" />
+
+    </form>
+    <script type="text/javascript">
+      (function() {
+      function deactivateTooltips() {
+      var spans = document.getElementsByTagName('span'),
+      spansLength = spans.length;
+      for (var i = 0 ; i < spansLength ; i++) {
+			   if (spans[i].className == 'tooltip') {
+			   spans[i].style.display = 'none';
+			   }
+			   }
+			   }
+			   function getTooltip(element) {
+			   while (element = element.nextSibling) {
+			   if (element.className === 'tooltip') {
+			   return element;
+			   }
+			   }
+			   return false;
+			   }
+		       var check = {}; 
+
+		       check['sex'] = function() {
+
+		       var sex = document.getElementsByName('sex'),
+		       tooltipStyle = getTooltip(sex[1].parentNode).style;
+
+		       if (sex[0].checked || sex[1].checked) {
+		       tooltipStyle.display = 'none';
+		       return true;
+		       } else {
+		       tooltipStyle.display = 'inline-block';
+		       return false;
+		       }
+		       };
+
+		       check['age'] = function() {
+		       var age = document.getElementById('age'),
+		       tooltipStyle = getTooltip(age).style,
+		       ageValue = parseInt(age.value);
+		       if (!isNaN(ageValue) && ageValue >= 10 && ageValue <= 100) {
+									     age.className = 'correct';
+									     tooltipStyle.display = 'none';
+									     return true;
+									     } else {
+									     age.className = 'incorrect';
+									     tooltipStyle.display = 'inline-block';
+									     return false;
+									     }    
+									     };
+
+									     check['login'] = function() {
+									     									     var login = document.getElementById('login'),
+									     tooltipStyle = getTooltip(login).style;
+									     if (login.value.length >= 4) {
+      login.className = 'correct';
+      tooltipStyle.display = 'none';
+      return true;
+      } else {
+      login.className = 'incorrect';
+      tooltipStyle.display = 'inline-block';
+      return false;
+      }
+      };
+
+      check['pwd1'] = function() {
+
+      var pwd1 = document.getElementById('pwd1'),
+      tooltipStyle = getTooltip(pwd1).style;
+
+      if (pwd1.value.length >= 6) {
+      pwd1.className = 'correct';
+      tooltipStyle.display = 'none';
+      return true;
+      } else {
+      pwd1.className = 'incorrect';
+      tooltipStyle.display = 'inline-block';
+      return false;
+      }
+      };
+
+      check['pwd2'] = function() {
+
+      var pwd1 = document.getElementById('pwd1'),
+      pwd2 = document.getElementById('pwd2'),
+      tooltipStyle = getTooltip(pwd2).style;
+
+      if (pwd1.value == pwd2.value && pwd2.value != '') {
+      pwd2.className = 'correct';
+      tooltipStyle.display = 'none';
+      return true;
+      } else {
+      pwd2.className = 'incorrect';
+      tooltipStyle.display = 'inline-block';
+      return false;
+      }
+      };
+
+      (function() {
+
+      var myForm = document.getElementById('myForm'),
+      inputs = document.getElementsByTagName('input'),
+      inputsLength = inputs.length;
+
+      for (var i = 0 ; i < inputsLength ; i++) {
+			   if (inputs[i].type == 'text' || inputs[i].type == 'password') {
+
+			   inputs[i].onkeyup = function() {
+			   check[this.id](this.id);
+									     };
+											}
+									     }
+
+									     myForm.onsubmit = function() {
+
+									     var result = true;
+
+									     for (var i in check) {
+									     result = check[i](i) && result;
+									     }
+
+									     if (result) {
+									     alert('Le formulaire est bien rempli.');
+														   }
+
+														   return false;
+
+														   };
+
+														   myForm.onreset = function() {
+
+														   for (var i = 0 ; i < inputsLength ; i++) {
+														   if (inputs[i].type == 'text' || inputs[i].type == 'password') {
+																					       inputs[i].className = '';
+																								       }
+																								       }
+																								       deactivateTooltips();
+	        																						       };
+																								       })();
+																								       deactivateTooltips();
+			    																					       })();
+</script></div></center>
+    <br />
+<div id="scroll">
+      <a title="Scroll to the top" class="top" href="#"><img src="images/top.png" alt="top" /></a>
+    </div>
+    <footer>
+      <p><img src="images/twitter.png" alt="twitter" />&nbsp;<img src="images/facebook.png" alt="facebook" />&nbsp;<img src="images/rss.png" alt="rss" /></p>
+      <p><a href="index.html">Accueil</a> | <a href="#">Article</a> | <a href="#">S'inscrire</a> | <a href="#">Livre d'or</a> | <a href="#">à propos</a></p>
+      <p>Copyright ETNA blog © 2014 tous droits réservés | <a href="http://www.etna-alternance.net/">ETNA alternance</a> | <a href="http://www.prepintra.etna-alternance.net">Prep'ETNA</a></p>
+    </footer>
+  </div>
+</body>
+</html>
